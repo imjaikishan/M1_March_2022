@@ -240,7 +240,7 @@ printf("\tis brought to you by");
 
 gotoxy(16,7);
 
-printf("\tCODE-PROJECTS");
+printf("\tJaiKishan_LTTS_StepIN_Program");
 
 gotoxy(16,8);
 
@@ -1099,8 +1099,3 @@ Password();
 }
 
 }
-
-
-
-
-
