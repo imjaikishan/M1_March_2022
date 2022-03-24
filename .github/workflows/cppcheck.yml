@@ -1,0 +1,20 @@
+name: Cppcheck
+
+on:
+  push:
+    branches: [ knifer ]
+  pull_request:
+    branches: [ knifer ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install-Cppcheck
+      run: mingw-get install cppcheck
+    - name: Analyse
+      run: cppcheck --enable-all Implementation
+   
