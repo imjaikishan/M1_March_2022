@@ -25,9 +25,9 @@ To use this Repositry
   
 ### Some screenshots of the outputs to help you understand it better 
 1. Initial page 
-![initial page](https://github.com/imjaikishan/StepIn_LTTS/blob/knifer/Images/inital%20page.jpg)
+![initial page](https://github.com/imjaikishan/StepIn_LTTS/blob/knifer/02_Images/inital%20page.jpg)
 
 2. Adding members 
-![added members](https://github.com/imjaikishan/StepIn_LTTS/blob/knifer/Images/add%20members.jpg)
+![added members](https://github.com/imjaikishan/StepIn_LTTS/blob/knifer/02_Images/add%20members.jpg)
 
  
