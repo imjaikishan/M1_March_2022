@@ -23,9 +23,9 @@
 char catagories[][15]={"New Member","Coach","Staff"};
 
 void returnfunc(void);
-
+//! Funtion to Print the main menu of our program 
 void mainmenu(void);
-
+//! After the password is confirmed it will proceed to let you addstaff 
 void addstaff(void);
 
 void deletestaff(void);
@@ -35,7 +35,7 @@ void editstaff(void);
 void searchstaff(void);
 
 void viewstaff(void);
-
+//! Exit the program with a display message 
 void closeapplication(void);
 
 int  getdata();
@@ -121,11 +121,11 @@ struct meroDate duedate;
 };
 
 struct staff a;
-
+//! Main function starts 
 int main()
 
 {
-
+//! Calling the funtion to check the password 
 Password();
 
 getch();
@@ -185,31 +185,31 @@ gotoxy(20,18);
 printf("Enter your choice:");
 
 
-
+//! Switch cases for the menu 
 switch(getch())
 
 {
 
 case '1':
-
+//! Adding staff after switch case 1 is pressed 
 addstaff();
 
 break;
 
 case '2':
-
+//! Deleting staff after switch case 2 is pressed 
 deletestaff();
 
 break;
 
 case '3':
-
+//! Search staff function after switch case 3 is pressed 
 searchstaff();
 
 break;
 
 case '4':
-
+//! Viewing your data after switch case 4 is pressed 
 viewstaff();
 
 break;
@@ -223,7 +223,7 @@ break;
 case '6':
 
 {
-
+//! Displaying the message after you exit the program 
 system("cls");
 
 gotoxy(16,3);
@@ -269,7 +269,7 @@ mainmenu();
 }
 
 }
-
+//! Adding options in the addstaff function 
 void addstaff(void)    
 
 {
@@ -349,7 +349,7 @@ addstaff();
 }
 
 }
-
+//! Editable options in the deletestaff function
 void deletestaff()    
 
 {
@@ -427,7 +427,7 @@ printf("Do you want to delete it?(Y/N):");
 if(getch()=='y')
 
 {
-
+//! Using file handling to open the binary file created after entering the user
 ft=fopen("test.dat","wb+");  
 
 rewind(fp);
@@ -712,7 +712,7 @@ fclose(fp);
 }
 
 
-
+//! Category for your search in the database
 void viewstaff(void)  
 
 {
