@@ -6,7 +6,7 @@
 #include<ctype.h>
 #include<direct.h>
 #include<time.h>
-#include <D:/a/StepIn_JaiKishan/03_Implementation/inc/getdata.h>
+#include "getdata.h"
 
 void returnfunc(void);
 //! Funtion to Print the main menu of our program
