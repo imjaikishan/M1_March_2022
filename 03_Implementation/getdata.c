@@ -1,4 +1,4 @@
-#include <D:/a/StepIn_JaiKishan/03_Implementation/inc/getdata.h>
+#include "getdata.h"
 #include<stdio.h>
 #include<windows.h>
 #include<conio.h>
