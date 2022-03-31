@@ -1,31 +1,17 @@
 #include<windows.h>
-
 #include<stdio.h>
-
 #include<conio.h>
-
 #include <stdlib.h>
-
-#include<string.h>                 
-
-#include<ctype.h>                   
-
-#include<dos.h>                    
-
+#include<string.h>
+#include<ctype.h>
+#include<direct.h>
 #include<time.h>
-
-
-
-#define RETURNTIME 15
-
-
-
-char catagories[][15]={"New Member","Coach","Staff"};
+#include <./inc/getdata.h>
 
 void returnfunc(void);
-//! Funtion to Print the main menu of our program 
+//! Funtion to Print the main menu of our program
 void mainmenu(void);
-//! After the password is confirmed it will proceed to let you addstaff 
+//! After the password is confirmed it will proceed to let you addstaff
 void addstaff(void);
 
 void deletestaff(void);
@@ -35,10 +21,10 @@ void editstaff(void);
 void searchstaff(void);
 
 void viewstaff(void);
-//! Exit the program with a display message 
+//! Exit the program with a display message
 void closeapplication(void);
 
-int  getdata();
+//int  getdata();
 
 int  checkid(int);
 
@@ -59,73 +45,16 @@ void loaderanim();
 FILE *fp,*ft,*fs;
 
 
-
-
-
-COORD coord = {0, 0};
-
-
-
-int s;
-
 char findstaff;
 
 char password[10]={"pass"};
 
 
 
-void gotoxy (int x, int y)
 
-{
-
-coord.X = x; coord.Y = y; 
-
-SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-
-}
-
-
-
-struct meroDate
-
-{
-
-int mm,dd,yy;
-
-};
-
-struct staff
-
-{
-
-int id;
-
-char stname[20];
-
-char name[20];
-
-char Address[20];
-
-char membersince[10];
-
-int contact;
-
-int count;
-
-char *cat;
-
-struct meroDate issued;
-
-struct meroDate duedate;
-
-};
-
-struct staff a;
-//! Main function starts 
 int main()
-
 {
-//! Calling the funtion to check the password 
+//! Calling the funtion to check the password
 Password();
 
 getch();
@@ -141,8 +70,6 @@ void mainmenu()
 {
 
 system("cls");
-
-int i;
 
 gotoxy(20,3);
 
@@ -185,31 +112,31 @@ gotoxy(20,18);
 printf("Enter your choice:");
 
 
-//! Switch cases for the menu 
+//! Switch cases for the menu
 switch(getch())
 
 {
 
 case '1':
-//! Adding staff after switch case 1 is pressed 
+//! Adding staff after switch case 1 is pressed
 addstaff();
 
 break;
 
 case '2':
-//! Deleting staff after switch case 2 is pressed 
+//! Deleting staff after switch case 2 is pressed
 deletestaff();
 
 break;
 
 case '3':
-//! Search staff function after switch case 3 is pressed 
+//! Search staff function after switch case 3 is pressed
 searchstaff();
 
 break;
 
 case '4':
-//! Viewing your data after switch case 4 is pressed 
+//! Viewing your data after switch case 4 is pressed
 viewstaff();
 
 break;
@@ -223,7 +150,7 @@ break;
 case '6':
 
 {
-//! Displaying the message after you exit the program 
+//! Displaying the message after you exit the program
 system("cls");
 
 gotoxy(16,3);
@@ -269,14 +196,14 @@ mainmenu();
 }
 
 }
-//! Adding options in the addstaff function 
-void addstaff(void)    
+//! Adding options in the addstaff function
+void addstaff(void)
 
 {
 
 system("cls");
 
-int i;
+
 
 gotoxy(20,5);
 
@@ -350,7 +277,7 @@ addstaff();
 
 }
 //! Editable options in the deletestaff function
-void deletestaff()    
+void deletestaff()
 
 {
 
@@ -360,7 +287,7 @@ int d;
 
 char another='y';
 
-while(another=='y')  
+while(another=='y')
 
 {
 
@@ -428,7 +355,7 @@ if(getch()=='y')
 
 {
 //! Using file handling to open the binary file created after entering the user
-ft=fopen("test.dat","wb+");  
+ft=fopen("test.dat","wb+");
 
 rewind(fp);
 
@@ -442,9 +369,9 @@ if(a.id!=d)
 
 fseek(ft,0,SEEK_CUR);
 
-fwrite(&a,sizeof(a),1,ft); 
+fwrite(&a,sizeof(a),1,ft);
 
-}                              
+}
 
 }
 
@@ -454,9 +381,9 @@ fclose(fp);
 
 remove("stf.dat");
 
-rename("test.dat","stf.dat"); 
+rename("test.dat","stf.dat");
 
-fp=fopen("stf.dat","rb+");    
+fp=fopen("stf.dat","rb+");
 
 if(findstaff=='t')
 
@@ -515,9 +442,9 @@ gotoxy( 15,20);
 
 printf("Enter Your Choice");
 
-fp=fopen("stf.dat","rb+"); 
+fp=fopen("stf.dat","rb+");
 
-rewind(fp);   
+rewind(fp);
 
 switch(getch())
 
@@ -587,7 +514,7 @@ findstaff='t';
 
 }
 
-if(findstaff!='t')  
+if(findstaff!='t')
 
 {
 
@@ -635,7 +562,7 @@ while(fread(&a,sizeof(a),1,fp)==1)
 
 {
 
-if(strcmp(a.name,(s))==0) 
+if(strcmp(a.name,(s))==0)
 
 {
 
@@ -660,9 +587,9 @@ if(strcmp(a.name,(s))==0)
 	printf("Contact:%i",a.contact);
 
 	gotoxy(20,d+13);
-	
+
 	printf("Member Since:%s",a.membersince);
-	
+
 	gotoxy(20,d+14);
 
 	getch();
@@ -713,11 +640,11 @@ fclose(fp);
 
 
 //! Category for your search in the database
-void viewstaff(void)  
+void viewstaff(void)
 
 {
 
-int i=0,j;
+int j;
 
 system("cls");
 
@@ -778,7 +705,7 @@ returnfunc();
 
 }
 
-void editstaff(void)  
+void editstaff(void)
 
 {
 
@@ -786,11 +713,11 @@ system("cls");
 
 int c=0;
 
-int d,e;
+int d;
 
 gotoxy(20,4);
 
-printf("\xdb\xdb\xdb\xdb\xdb\xdbEdit Member's Record \xdb\xdb\xdb\xdb\xdb\xdb");
+printf("\nEdit Member's Record \n");
 
 char another='y';
 
@@ -846,7 +773,7 @@ gotoxy(15,12);
 
 printf("Enter New Membership date:");
 
-scanf("%s",&a.membersince);
+scanf("%s",a.membersince);
 
 gotoxy(15,13);
 
@@ -902,7 +829,7 @@ printf("Press ENTER to return to main menu");
 
 a:
 
-if(getch()==13) 
+if(getch()==13)
 
 mainmenu();
 
@@ -911,88 +838,7 @@ else
 goto a;
 
 }
-
-int getdata()
-
-{
-
-int t;
-
-gotoxy(20,3);
-
-printf("Enter the Information Below");
-
-gotoxy(20,4);
-
-printf("Category:");
-
-gotoxy(31,5);
-
-printf("%s",catagories[s-1]);
-
-gotoxy(21,6);
-
-printf("ID:\t");
-
-gotoxy(30,6);
-
-scanf("%d",&t);
-
-if(checkid(t) == 0)
-
-{
-
-gotoxy(21,13);
-
-printf("\aThe id already exists\a");
-
-getch();
-
-mainmenu();
-
-return 0;
-
-}
-
-a.id=t;
-
-gotoxy(21,7);
-
-printf("Name:");
-
-gotoxy(33,7);
-
-scanf("%s",a.name);
-
-gotoxy(21,8);
-
-printf("Address:");
-
-gotoxy(30,8);
-
-scanf("%s",a.Address);
-
-gotoxy(21,9);
-
-printf("Contact:");
-
-gotoxy(31,9);
-
-scanf("%i",&a.contact);
-
-gotoxy(21,10);
-
-printf("Member Since:");
-
-scanf("%s",&a.membersince);
-
-gotoxy(31,17);
-
-return 1;
-
-}
-
-int checkid(int t)  
+int checkid(int t)
 
 {
 
@@ -1002,13 +848,13 @@ while(fread(&a,sizeof(a),1,fp)==1)
 
 if(a.id==t)
 
-return 0;  
+return 0;
 
-return 1; 
+return 1;
 
 }
 
-int t(void) 
+int t(void)
 
 {
 
@@ -1026,7 +872,7 @@ return 0 ;
 
 
 
-void Password(void) 
+void Password(void)
 
 {
 
@@ -1034,11 +880,9 @@ void Password(void)
 
 system("cls");
 
-char d[25]="Password Protected";
-
 char ch,pass[10];
 
-int i=0,j;
+int i=0;
 
 
 
@@ -1048,7 +892,7 @@ int i=0,j;
 
 	printf("\t \n\n\n Enter Password:");
 
-	
+
 
 while(ch!=13)
 
