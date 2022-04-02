@@ -1,10 +1,6 @@
 # Gym_Management_System
 * The code quality of my Project [![Codacy Badge](https://app.codacy.com/project/badge/Grade/426068ab36b4432cb882c6028bcf2c31)](https://www.codacy.com/gh/imjaikishan/StepIn_LTTS/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=imjaikishan/StepIn_LTTS&amp;utm_campaign=Badge_Grade)
 
-To use this Repositry 
-
-    git clone https://github.com/imjaikishan/M1_March_2022.git
-
 * Build Action For this code 
  [![C/C++ CI](https://github.com/imjaikishan/StepIn_LTTS/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/imjaikishan/StepIn_LTTS/actions/workflows/c-cpp.yml)
  
@@ -29,5 +25,38 @@ To use this Repositry
 
 2. Adding members 
 ![added members](https://github.com/imjaikishan/StepIn_LTTS/blob/knifer/02_Images/add%20members.jpg)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/imjaikishan/StepIn_JaiKishan.git
+```
+
+Go to the project directory
+
+```bash
+  cd StepIn_JaiKishan
+```
+
+Install dependencies
+
+```bash
+  sudo apt-get install build-essentials
+```
+
+
+
+## Documentation
+
+[Documentation](https://github.com/imjaikishan/StepIn_JaiKishan/tree/knifer/03_Implementation/documentation)
+
+
+## Used By
+
+This project is used by the following :
+
+- My local gym 
 
  
