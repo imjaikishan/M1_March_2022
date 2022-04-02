@@ -1,5 +1,5 @@
-#include "./inc/headers.h"
-#include "./inc/getdata.h"
+#include "03_Implementation/inc/headers.h"
+#include "03_Implementation/inc/getdata.h"
 void returnfunc(void);
 //! Funtion to Print the main menu of our program
 void mainmenu(void);
