@@ -1,3 +1,13 @@
+/**
+ * @file getdata.h
+ * @author Jai Kishan
+ *  * @brief
+ * @version 0.1
+ * @date 2022-04-02
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
 #include "windows.h"
 #ifndef GETDATA_H
 #define GETDATA_H
