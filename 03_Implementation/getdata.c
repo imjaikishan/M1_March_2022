@@ -8,9 +8,11 @@
  * @copyright Copyright (c) 2022
  *
  */
-#include "./getdata.h"
+#include "03_Implementation/inc/getdata.h"
 #include "ncurses.h"
 #include<stdio.h>
+
+
 /**
  * @brief getting data from the user 
  *
