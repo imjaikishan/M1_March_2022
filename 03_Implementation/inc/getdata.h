@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2022
  *
  */
-#include "windows.h"
 #ifndef GETDATA_H
 #define GETDATA_H
 
@@ -18,16 +17,6 @@
 /*Forward declaration*/
 char catagories[][15]={"New Member","Coach","Staff"};
 int getdata();
-COORD coord = {0, 0};
-void gotoxy (int x, int y)
-
-{
-
-coord.X = x; coord.Y = y;
-
-SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-
-}
 int s;
 struct meroDate
 

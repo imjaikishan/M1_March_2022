@@ -1,5 +1,5 @@
-#include "headers.h"
-#include "getdata.h"
+#include "./inc/headers.h"
+#include "./inc/getdata.h"
 void returnfunc(void);
 //! Funtion to Print the main menu of our program
 void mainmenu(void);
@@ -21,40 +21,6 @@ FILE *fp,*ft,*fs;
 int s;
 char findstaff;
 char password[10]={"pass"};
-struct meroDate
-{
-
-int mm,dd,yy;
-
-};
-
-struct staff
-
-{
-
-int id;
-
-char stname[20];
-
-char name[20];
-
-char Address[20];
-
-char membersince[10];
-
-int contact;
-
-int count;
-
-char *cat;
-
-struct meroDate issued;
-
-struct meroDate duedate;
-
-};
-
-struct staff a;
 //! Main function starts
 int main()
 
@@ -632,7 +598,7 @@ scanf("%i",&a.contact);
 
 printf("Enter New Membership date:\n");
 
-scanf("%s",&a.membersince);
+scanf("%s",a.membersince);
 
 printf("\nThe record is modified");
 
@@ -688,11 +654,6 @@ else
 goto a;
 
 }
-
-
-
-}
-
 int checkid(int t)
 
 {
@@ -800,4 +761,3 @@ Password();
 }
 
 }
-

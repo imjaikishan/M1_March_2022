@@ -1,2 +1,7 @@
-T1: main.c
-	gcc -o T1 main.c getdata.c
+all: pro1 pro2
+	
+pro1: 
+	gcc -o pro1 main.c
+
+pro2:
+	gcc -o pro2 getdata.c
