@@ -1,13 +1,5 @@
-#include<windows.h>
-#include<stdio.h>
-#include<conio.h>
-#include <stdlib.h>
-#include<string.h>
-#include<ctype.h>
-#include<direct.h>
-#include<time.h>
+#include "headers.h"
 #include "getdata.h"
-
 void returnfunc(void);
 //! Funtion to Print the main menu of our program
 void mainmenu(void);
@@ -15,44 +7,57 @@ void mainmenu(void);
 void addstaff(void);
 
 void deletestaff(void);
-
 void editstaff(void);
-
 void searchstaff(void);
-
 void viewstaff(void);
-//! Exit the program with a display message
 void closeapplication(void);
-
-//int  getdata();
-
+int  getdata();
 int  checkid(int);
-
 int t(void);
-
-
-
 void Password();
-
 void issuerecord();
-
 void loaderanim();
-
-
-
-
-
 FILE *fp,*ft,*fs;
-
-
+int s;
 char findstaff;
-
 char password[10]={"pass"};
+struct meroDate
+{
 
+int mm,dd,yy;
 
+};
 
+struct staff
 
+{
+
+int id;
+
+char stname[20];
+
+char name[20];
+
+char Address[20];
+
+char membersince[10];
+
+int contact;
+
+int count;
+
+char *cat;
+
+struct meroDate issued;
+
+struct meroDate duedate;
+
+};
+
+struct staff a;
+//! Main function starts
 int main()
+
 {
 //! Calling the funtion to check the password
 Password();
@@ -71,7 +76,7 @@ void mainmenu()
 
 system("cls");
 
-gotoxy(20,3);
+int i;
 
 printf(" \t\tMAIN MENU \n ");
 
@@ -79,37 +84,21 @@ printf("\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb
 
 
 
-gotoxy(20,5);
+printf("\n<1> Add Members ");
+printf("\n<2> Remove Members\n");
 
-printf("<1> Add Members   ");
+printf("<3> Search Members\n");
 
-gotoxy(20,7);
+printf("<4> View Member's list\n");
 
-printf("<2> Remove Members");
+printf("<5> Edit Members Record\n");
 
-gotoxy(20,9);
-
-printf("<3> Search Members");
-
-gotoxy(20,11);
-
-printf("<4> View Member's list");
-
-gotoxy(20,13);
-
-printf("<5> Edit Members Record");
-
-gotoxy(20,15);
-
-printf("<6> Close Application");
-
-gotoxy(20,22);
+printf("<6> Close Application\n");
 
 t();
 
-gotoxy(20,18);
 
-printf("Enter your choice:");
+printf("Enter your choice:\n");
 
 
 //! Switch cases for the menu
@@ -153,23 +142,14 @@ case '6':
 //! Displaying the message after you exit the program
 system("cls");
 
-gotoxy(16,3);
-
 printf("\tGYM Management System");
 
-gotoxy(16,4);
+printf("\n\tProject in C");
 
-printf("\tProject in C");
+printf("\n\tis brought to you by");
 
-gotoxy(16,5);
+printf("\n\tJaiKishan_LTTS_StepIN_Program");
 
-printf("\tis brought to you by");
-
-gotoxy(16,7);
-
-printf("\tJaiKishan_LTTS_StepIN_Program");
-
-gotoxy(16,8);
 
 
 
@@ -181,7 +161,6 @@ default:
 
 {
 
-gotoxy(10,25);
 
 printf("\aWrong Entry!!Please re-entered correct option");
 
@@ -203,33 +182,20 @@ void addstaff(void)
 
 system("cls");
 
+int i;
 
+printf("SELECT CATEGORIES\n");
 
-gotoxy(20,5);
+printf("<1> New Member\n");
 
-printf("SELECT CATEGORIES");
+printf("<2> Coach\n");
 
-gotoxy(20,7);
-
-printf("<1> New Member");
-
-gotoxy(20,9);
-
-printf("<2> Coach");
-
-gotoxy(20,11);
-
-printf("<3> Staff");
-
-gotoxy(20,13);
-
-printf("<4> Back to main menu");
-
-gotoxy(20,21);
+printf("<3> Staff\n");
+printf("<4> Back to main menu\n");
 
 
 
-printf("Enter your choice:");
+printf("\nEnter your choice:");
 
 scanf("%d",&s);
 
@@ -255,13 +221,9 @@ fwrite(&a,sizeof(a),1,fp);
 
 fclose(fp);
 
-gotoxy(21,14);
+printf("The record is sucessfully saved\n");
 
-printf("The record is sucessfully saved");
-
-gotoxy(21,15);
-
-printf("Save any more?(Y / N):");
+printf("Save any more?(Y / N):\n");
 
 if(getch()=='n')
 
@@ -293,9 +255,7 @@ while(another=='y')
 
 system("cls");
 
-gotoxy(10,5);
-
-printf("Enter the ID to  remove:");
+printf("Enter the ID to  remove:\n");
 
 scanf("%d",&d);
 
@@ -311,17 +271,9 @@ if(a.id==d)
 
 {
 
-
-
-gotoxy(10,7);
-
-printf("The record is available");
-
-gotoxy(10,8);
+printf("The record is available\n");
 
 printf("Name is %s",a.name);
-
-gotoxy(10,9);
 
 findstaff='t';
 
@@ -333,9 +285,7 @@ if(findstaff!='t')
 
 {
 
-gotoxy(10,10);
-
-printf("No record is found modify the search");
+printf("No record is found modify the search\n");
 
 if(getch())
 
@@ -347,9 +297,7 @@ if(findstaff=='t' )
 
 {
 
-gotoxy(10,9);
-
-printf("Do you want to delete it?(Y/N):");
+printf("Do you want to delete it?(Y/N):\n");
 
 if(getch()=='y')
 
@@ -389,11 +337,7 @@ if(findstaff=='t')
 
 {
 
-gotoxy(10,10);
-
-printf("The record is sucessfully deleted");
-
-gotoxy(10,11);
+printf("The record is sucessfully deleted\n");
 
 printf("\n\tDelete another record?(Y/N)");
 
@@ -413,8 +357,6 @@ another=getch();
 
 }
 
-gotoxy(10,15);
-
 mainmenu();
 
 }
@@ -427,20 +369,13 @@ system("cls");
 
 int d;
 
-printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdbSearch Member\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+printf("\n\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdbSearch Member\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
 
+printf("\n1. Search By ID\n");
 
-gotoxy(20,10);
+printf("2. Search By Name\n");
 
-printf("1. Search By ID");
-
-gotoxy(20,14);
-
-printf("2. Search By Name");
-
-gotoxy( 15,20);
-
-printf("Enter Your Choice");
+printf("Enter Your Choice\n");
 
 fp=fopen("stf.dat","rb+");
 
@@ -456,17 +391,9 @@ case '1':
 
 system("cls");
 
-gotoxy(25,4);
-
-printf("\xdb\xdb\xdb\xdb\xdb\xdbSearch By Id\xdb\xdb\xdb\xdb\xdb\xdb");
-
-gotoxy(20,5);
-
-printf("Enter the id:");
-
+printf("\n\xdb\xdb\xdb\xdb\xdb\xdbSearch By Id\xdb\xdb\xdb\xdb\xdb\xdb");
+printf("\nEnter the id:\n");
 scanf("%d",&d);
-
-gotoxy(20,7);
 
 while(fread(&a,sizeof(a),1,fp)==1)
 
@@ -477,34 +404,18 @@ if(a.id==d)
 {
 
 Sleep(2);
+printf("\nThe Record is available\n");
 
-gotoxy(20,6);
+printf("\nID:%d",a.id);
 
-printf("The Record is available\n");
+printf("\nCategory:%s",a.cat);
+printf("\nName:%s",a.name);
 
-gotoxy(20,8);
+printf("\nAddress:%s ",a.Address);
 
-printf("ID:%d",a.id);
+printf("\nContact:%i ",a.contact);
 
-gotoxy(20,9);
-
-printf("Category:%s",a.cat);
-
-gotoxy(20,10);
-
-printf("Name:%s",a.name);
-
-gotoxy(20,11);
-
-printf("Address:%s ",a.Address);
-
-gotoxy(20,12);
-
-printf("Contact:%i ",a.contact);
-
-gotoxy(20,13);
-
-printf("Member Since:%s",a.membersince);
+printf("\nMember Since:%s",a.membersince);
 
 findstaff='t';
 
@@ -522,9 +433,7 @@ printf("\aNo Record Found");
 
 }
 
-gotoxy(20,17);
-
-printf("Try another search?(Y/N)");
+printf("\nTry another search?(Y/N)");
 
 if(getch()=='y')
 
@@ -546,13 +455,9 @@ char s[15];
 
 system("cls");
 
-gotoxy(25,4);
+printf("\n\xdb\xdb\xdb\xdb\xdb\xdbSearch Record By Name\xdb\xdb\xdb\xdb\xdb\xdb");
 
-printf("\xdb\xdb\xdb\xdb\xdb\xdbSearch Record By Name\xdb\xdb\xdb\xdb\xdb\xdb");
-
-gotoxy(20,5);
-
-printf("Enter the Name:");
+printf("\nEnter the Name:");
 
 scanf("%s",s);
 
@@ -566,35 +471,27 @@ if(strcmp(a.name,(s))==0)
 
 {
 
-	gotoxy(20,d+7);
+	printf("\nID:%d",a.id);
 
-	//printf("The Staff is available");
 
-	gotoxy(20,d+8);
 
-	printf("ID:%d",a.id);
+	printf("\nName:%s",a.name);
 
-	gotoxy(20,d+10);
 
-	printf("Name:%s",a.name);
 
-	gotoxy(20,d+11);
+	printf("\nAddress:%s",a.Address);
 
-	printf("Address:%s",a.Address);
 
-	gotoxy(20,d+12);
 
-	printf("Contact:%i",a.contact);
+	printf("\nContact:%i",a.contact);
 
-	gotoxy(20,d+13);
 
-	printf("Member Since:%s",a.membersince);
 
-	gotoxy(20,d+14);
+	printf("\nMember Since:%s",a.membersince);
+
+
 
 	getch();
-
-	d+=6;
 
 }
 
@@ -610,9 +507,7 @@ printf("\aNo Record Found");
 
 
 
-gotoxy(20,d+11);
-
-printf("Try another search?(Y/N)");
+printf("\nTry another search?(Y/N)");
 
 if(getch()=='y')
 
@@ -638,21 +533,16 @@ fclose(fp);
 
 }
 
-
-//! Category for your search in the database
 void viewstaff(void)
 
 {
 
-int j;
+int i=0,j;
 
 system("cls");
 
-gotoxy(1,1);
+printf("\n\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdbMember List\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
 
-printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdbMember List\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
-
-gotoxy(2,2);
 
 printf("\n CATEGORY === ID ==== NAME ======== ADDRESS ===== CONTACT ===== MEMBER SINCE ");
 
@@ -665,31 +555,19 @@ while(fread(&a,sizeof(a),1,fp)==1)
 
 {
 
-gotoxy(1,j);
-
 printf("%s",a.cat);
-
-gotoxy(14,j);
 
 printf("%d",a.id);
 
-gotoxy(22,j);
 
 printf("%s",a.name);
 
-gotoxy(36,j);
 
 printf("%s",a.Address);
 
-gotoxy(50,j);
-
 printf("%i",a.contact);
 
-gotoxy(67,j);
-
 printf("%s",a.membersince);
-
-gotoxy(68,j);
 
 printf("\n\n");
 
@@ -698,9 +576,6 @@ j++;
 }
 
 fclose(fp);
-
-gotoxy(35,25);
-
 returnfunc();
 
 }
@@ -713,11 +588,9 @@ system("cls");
 
 int c=0;
 
-int d;
+int d,e;
 
-gotoxy(20,4);
-
-printf("\nEdit Member's Record \n");
+printf("\nEdit Member's Record");
 
 char another='y';
 
@@ -727,9 +600,7 @@ while(another=='y')
 
 system("cls");
 
-gotoxy(15,6);
-
-printf("Enter Id to be edited:");
+printf("\nEnter Id to be edited:");
 
 scanf("%d",&d);
 
@@ -743,41 +614,27 @@ if(checkid(d)==0)
 
 {
 
-gotoxy(15,7);
+printf("\nThis Member is available");
 
-printf("This Member is available");
+printf("\nThe ID:%d",a.id);
 
-gotoxy(15,8);
-
-printf("The ID:%d",a.id);
-
-gotoxy(15,9);
-
-printf("Enter new name:");
+printf("Enter new name:\n");
 
 scanf("%s",a.name);
 
-gotoxy(15,10);
-
-printf("Enter new Address:");
+printf("Enter new Address:\n");
 
 scanf("%s",a.Address);
 
-gotoxy(15,11);
-
-printf("Enter new Contact:");
+printf("Enter new Contact:\n");
 
 scanf("%i",&a.contact);
 
-gotoxy(15,12);
+printf("Enter New Membership date:\n");
 
-printf("Enter New Membership date:");
+scanf("%s",&a.membersince);
 
-scanf("%s",a.membersince);
-
-gotoxy(15,13);
-
-printf("The record is modified");
+printf("\nThe record is modified");
 
 fseek(fp,ftell(fp)-sizeof(a),0);
 
@@ -793,17 +650,13 @@ if(c==0)
 
 {
 
-gotoxy(15,9);
-
-printf("No record found");
+printf("\nNo record found");
 
 }
 
 }
 
-gotoxy(15,16);
-
-printf("Modify another Record?(Y/N)");
+printf("\nModify another Record?(Y/N)");
 
 fflush(stdin);
 
@@ -820,10 +673,7 @@ void returnfunc(void)
 {
 
 {
-
-gotoxy(15,20);
-
-printf("Press ENTER to return to main menu");
+printf("\nPress ENTER to return to main menu");
 
 }
 
@@ -838,6 +688,11 @@ else
 goto a;
 
 }
+
+
+
+}
+
 int checkid(int t)
 
 {
@@ -862,7 +717,7 @@ time_t t;
 
 time(&t);
 
-printf("Date and time:%s\n",ctime(&t));
+printf("\nDate and time:%s\n",ctime(&t));
 
 
 
@@ -880,9 +735,11 @@ void Password(void)
 
 system("cls");
 
+char d[25]="Password Protected";
+
 char ch,pass[10];
 
-int i=0;
+int i=0,j;
 
 
 
@@ -943,3 +800,4 @@ Password();
 }
 
 }
+
