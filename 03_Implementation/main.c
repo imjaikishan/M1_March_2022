@@ -35,7 +35,10 @@ return 0;
 
 
 }
-
+/**
+ * @brief menu interface for users
+ *
+ */
 void mainmenu()
 
 {
@@ -204,7 +207,10 @@ addstaff();
 }
 
 }
-//! Editable options in the deletestaff function
+/**
+ * @brief deleting the staff option
+ *
+ */
 void deletestaff()
 
 {
@@ -268,7 +274,6 @@ printf("Do you want to delete it?(Y/N):\n");
 if(getch()=='y')
 
 {
-//! Using file handling to open the binary file created after entering the user
 ft=fopen("test.dat","wb+");
 
 rewind(fp);
