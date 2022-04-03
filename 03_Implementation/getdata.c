@@ -8,9 +8,8 @@
  * @copyright Copyright (c) 2022
  *
  */
-#include "03_Implementation/inc/getdata.h"
-#include "ncurses.h"
-#include<stdio.h>
+#include "getdata.h"
+#include "headers.h"
 
 
 /**
